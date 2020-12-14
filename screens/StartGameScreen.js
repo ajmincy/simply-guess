@@ -11,6 +11,7 @@ import {
 
 import Card from "../components/Card";
 import Input from "../components/Input";
+import Picture from "../components/Picture";
 import Colors from "../constants/colors";
 import NumberContainer from "../components/NumberContainer";
 
@@ -63,9 +64,8 @@ const StartGameScreen = (props) => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a new Game</Text>
+        <Text style={styles.title}>Tap It Spell It</Text>
         <Card style={styles.inputContainer}>
-          <Text>Pick an Object</Text>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -76,6 +76,7 @@ const StartGameScreen = (props) => {
             onChangeText={numberInputHandler}
             value={enteredValue}
           />
+          <Picture />
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
               <Button
