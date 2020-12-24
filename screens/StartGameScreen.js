@@ -52,7 +52,10 @@ const StartGameScreen = (props) => {
       <Card style={styles.summaryContainer}>
         <Text>You selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="Start Game" onPress={() => props.onStartGameProp(selectedNumber)}/>
+        <Button
+          title="Start Game"
+          onPress={() => props.onStartGameProp(selectedNumber)}
+        />
       </Card>
     );
   }
@@ -65,35 +68,18 @@ const StartGameScreen = (props) => {
     >
       <View style={styles.screen}>
         <Text style={styles.title}>Tap It Spell It</Text>
-        <Card style={styles.inputContainer}>
-          <Input
-            style={styles.input}
-            blurOnSubmit
-            autoCapitalize="none"
-            autocorrect={false}
-            keyboardType="number-pad"
-            maxLength={2}
-            onChangeText={numberInputHandler}
-            value={enteredValue}
-          />
-          <Picture />
-          <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              <Button
-                title="Reset"
-                onPress={resetInputHandler}
-                color={Colors.accent}
-              />
-            </View>
-            <View style={styles.button}>
-              <Button
-                title="Confirm"
-                onPress={confirmInputHandler}
-                color={Colors.primary}
-              />
-            </View>
-          </View>
-        </Card>
+        <View style={styles.cardsContainer}>
+          <Card style={styles.imageContainer}>
+            <Picture onClick={confirmInputHandler} />
+          </Card>
+          <Card style={styles.imageContainer}>
+            <Picture onClick={confirmInputHandler} />
+          </Card>
+          <Card style={styles.imageContainer}>
+            <Picture onClick={confirmInputHandler} />
+          </Card>
+        </View>
+
         {confirmedOutput}
       </View>
     </TouchableWithoutFeedback>
@@ -116,6 +102,14 @@ const styles = StyleSheet.create({
     maxWidth: "80%",
     alignItems: "center",
   },
+  imageContainer: {
+    width: 150,
+    maxWidth: "80%",
+    marginBottom: 15,
+  },
+  cardsContainer: {
+    flexWrap: "wrap"
+  },
   buttonContainer: {
     flexDirection: "row",
     width: "100%",
@@ -131,7 +125,7 @@ const styles = StyleSheet.create({
   },
   summaryContainer: {
     marginTop: 20,
-    alignItems: 'center'
+    alignItems: "center",
   },
 });
 
